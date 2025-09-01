@@ -6,7 +6,12 @@ export default function Navbar(){
   const[open,setOpen]=useState(false)
   const[isSignup,setIsSignup]=useState(false)
   const[u,setU]=useState('');const[p,setP]=useState('');const[e,setE]=useState('')
-  async function submitAuth(ev:React.FormEvent){ev.preventDefault();if(isSignup)await register({username:u,password:p,email:e||undefined});else await login(u,p);setOpen(false);setU('');setP('');setE('')}
+  
+  async function submitAuth(ev:React.FormEvent){
+    ev.preventDefault();
+    if(isSignup)await register({username:u,password:p,email:e||undefined});
+    else await login(u,p);setOpen(false);setU('');setP('');setE('')
+  }
   return(<header className='bg-surface-2 border-b border-black/40'>
     <div className='max-w-7xl mx-auto px-4 py-3 flex items-center gap-6'>
       <Link to='/' className='text-white/90 font-semibold tracking-wide'>Movies</Link>
